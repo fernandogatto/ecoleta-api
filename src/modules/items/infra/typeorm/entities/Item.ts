@@ -5,6 +5,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   OneToMany,
+  BeforeInsert,
 } from 'typeorm';
 
 import PointItems from '@modules/point_items/infra/typeorm/entities/PointItems';
@@ -28,6 +29,16 @@ class Item {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @BeforeInsert()
+  async setImage(image: string) {
+    this.image = image;
+  }
+
+  @BeforeInsert()
+  async setTitle(title: string) {
+    this.title = title;
+  }
 }
 
 export default Item;
