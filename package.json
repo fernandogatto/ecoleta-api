@@ -6,10 +6,18 @@
   "scripts": {
     "build": "tsc",
     "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpileOnly --ignore-watch node_modules src/shared/infra/http/server.ts",
-    "start": "ts-node src/shared/infra/http/server.ts"
+    "start": "ts-node src/shared/infra/http/server.ts",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "@types/cors": "^2.8.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "pg": "^8.2.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.25",
+    "uuidv4": "^6.1.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.6",
