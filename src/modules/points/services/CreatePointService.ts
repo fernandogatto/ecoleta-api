@@ -1,10 +1,8 @@
-import { getRepository } from 'typeorm';
+import { getRepository, getManager } from 'typeorm';
 
 import AppError from '@shared/errors/AppError';
 
-import PointItems from '@modules/point_items/infra/typeorm/entities/PointItems';
 import Point from '../infra/typeorm/entities/Point';
-import Item from '@modules/items/infra/typeorm/entities/Item';
 
 import CreatePointItemsService from '@modules/point_items/services/CreatePointItems';
 
@@ -57,7 +55,7 @@ class CreatePointService {
     items.map(async (item_id) => {
       const createPointItems = new CreatePointItemsService();
 
-      const pointItems = await createPointItems.execute({item_id, point_id: point.id});
+      await createPointItems.execute({item_id, point_id: point.id});
     });
 
     return point;

@@ -1,37 +1,11 @@
-import { Request, Response, Router } from 'express';
+import { Router } from 'express';
 
-import CreatePointService from '@modules/points/services/CreatePointService';
+import PointsController from '../controllers/PointsController';
 
 const pointsRouter = Router();
 
-pointsRouter.post('/', async (request: Request, response: Response) => {
-  const {
-    name,
-    email,
-    whatsapp,
-    latitude,
-    longitude,
-    city,
-    uf,
-    items,
-  } = request.body;
+const pointsController = new PointsController();
 
-  const createPoint = new CreatePointService();
-
-  const point = await createPoint.execute({
-    name,
-    email,
-    whatsapp,
-    latitude,
-    longitude,
-    city,
-    uf,
-    items,
-  });
-
-  return response.json(point);
-});
-
-
+pointsRouter.post('/', pointsController.create);
 
 export default pointsRouter;
