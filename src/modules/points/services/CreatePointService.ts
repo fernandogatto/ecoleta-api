@@ -1,4 +1,4 @@
-import { getRepository, getManager } from 'typeorm';
+import { getRepository } from 'typeorm';
 
 import AppError from '@shared/errors/AppError';
 

@@ -2,6 +2,7 @@
 import { Request, Response } from 'express';
 
 import CreatePointService from '@modules/points/services/CreatePointService';
+import ShowPointService from '@modules/points/services/ShowPointService';
 
 class PointsController {
   public async create(request: Request, response: Response) {
@@ -28,6 +29,16 @@ class PointsController {
       uf,
       items,
     });
+
+    return response.json(point);
+  }
+
+  public async show(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const showPoint = new ShowPointService();
+
+    const point = await showPoint.execute(id);
 
     return response.json(point);
   }
