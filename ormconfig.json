@@ -16,6 +16,7 @@
     "./src/modules/**/infra/typeorm/seeds/*.ts"
   ],
   "cli": {
-    "migrationsDir": "./src/shared/infra/typeorm/migrations"
+    "migrationsDir": "./src/shared/infra/typeorm/migrations",
+    "seedsDir": "./src/modules/**/infra/typeorm/seeds"
   }
 }
