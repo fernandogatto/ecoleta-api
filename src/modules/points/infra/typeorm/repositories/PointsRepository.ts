@@ -71,6 +71,12 @@ class PointsRepository implements IPointsRepository {
 
     return points;
   }
+
+  public async findAllPoints(): Promise<Point[] | undefined> {
+    const points = await this.pointsRepository.find();
+
+    return points;
+  }
 }
 
 export default PointsRepository;

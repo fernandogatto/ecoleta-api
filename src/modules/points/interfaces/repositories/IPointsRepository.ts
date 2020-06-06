@@ -12,5 +12,5 @@ export default interface IPointsInterface {
   findPointById(id: string): Promise<Point | undefined>;
   findPointByLatLon(data: IFindPointByLatLonDTO): Promise<Point | undefined>;
   findAllFilteredPoints(data: IFindAllFilteredPointsDTO): Promise<Point[]>;
-  // findAllPoints(): Promise<Point[] | undefined>;
+  findAllPoints(): Promise<Point[] | undefined>;
 }
