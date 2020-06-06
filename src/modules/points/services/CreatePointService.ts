@@ -1,12 +1,15 @@
+import { injectable, inject } from 'tsyringe';
 import { getRepository } from 'typeorm';
 
 import AppError from '@shared/errors/AppError';
 
 import Point from '../infra/typeorm/entities/Point';
 
-import CreatePointItemsService from '@modules/points/services/CreatePointItemsService';
+import IPointsRepository from '../interfaces/repositories/IPointsRepository'
+import IItemsRepository from '@modules/items/interfaces/repositories/IItemsRepository';
+import ICreatePointsDTO from '../interfaces/dtos/ICreatePointsDTO';
 
-interface Request {
+interface IRequest {
   name: string;
   email: string;
   whatsapp: string;
@@ -17,45 +20,43 @@ interface Request {
   items: Array<string>;
 }
 
+@injectable()
 class CreatePointService {
+  constructor(
+    @inject('PointsRepository')
+    private pointsRepository: IPointsRepository,
+
+    @inject('ItemsRepository')
+    private itemsRepository: IItemsRepository,
+  ) {}
+
   public async execute({
     name, email, whatsapp, latitude, longitude, city, uf, items
-  }: Request): Promise<Point> {
-    const pointsRepository = getRepository(Point);
+  }: IRequest): Promise<Point> {
+    const itemsExists = await this.itemsRepository.findAllItemsById(items);
 
-    const emailExists = await pointsRepository.findOne({
-      where: { email },
-    });
-
-    if(emailExists) {
-      throw new AppError('This email already exists');
+    if(items.length !== itemsExists.length) {
+      throw new AppError('Item not found');
     }
 
-    const pointExists = await pointsRepository.findOne({
-      where: { latitude, longitude },
+    const pointExists = this.pointsRepository.findPointByLatLon({
+      latitude,
+      longitude,
     });
 
     if(pointExists) {
       throw new AppError('This point already exists');
     }
 
-    const point = pointsRepository.create({
-      image: 'fake',
+    const point = this.pointsRepository.create({
       name,
       email,
       whatsapp,
       latitude,
       longitude,
       city,
-      uf
-    });
-
-    await pointsRepository.save(point);
-
-    items.map(async (item_id) => {
-      const createPointItems = new CreatePointItemsService();
-
-      await createPointItems.execute({item_id, point_id: point.id});
+      uf,
+      items_id: items,
     });
 
     return point;

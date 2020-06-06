@@ -64,10 +64,12 @@ class ItemsRepository implements IItemsRepository {
     return items;
   }
 
-  public async findAllItemById(items: Array<string>): Promise<Item[]> {
+  public async findAllItemsById(items: Array<string>): Promise<Item[]> {
     const findAllItems = await this.itemsRepository.find({
-      id: In(items),
+      where: { id: In(items) },
     });
+
+    console.log(findAllItems);
 
     return findAllItems;
   }

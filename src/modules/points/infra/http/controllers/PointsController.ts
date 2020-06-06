@@ -20,7 +20,7 @@ class PointsController {
       items,
     } = request.body;
 
-    const createPoint = new CreatePointService();
+    const createPoint = container.resolve(CreatePointService);
 
     const point = await createPoint.execute({
       name,

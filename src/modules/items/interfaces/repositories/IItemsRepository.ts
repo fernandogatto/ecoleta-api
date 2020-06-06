@@ -7,5 +7,5 @@ export default interface IItemsRepository {
   findItemById(id: string): Promise<Item | undefined>;
   findItemByTitle(id: string): Promise<Item | undefined>;
   findItemsByPointId(point_id: string): Promise<Item[] | undefined>;
-  findAllItemById(items: Array<string>): Promise<Item[]>;
+  findAllItemsById(items: Array<string>): Promise<Item[]>;
 }
