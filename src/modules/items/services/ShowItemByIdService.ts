@@ -1,12 +1,18 @@
-import { getRepository } from 'typeorm';
+import { injectable, inject } from 'tsyringe';
+
+import ItemsRepository from '../repositories/ItemsRepository';
 
 import Item from '../infra/typeorm/entities/Item';
 
+@injectable()
 class ShowItemByIdService {
-  public async execute(item_id: string): Promise<Item | undefined> {
-    const itemsRepository = getRepository(Item);
+  constructor(
+    @inject('ItemsRepository')
+    private itemsRepository: ItemsRepository,
+  ) {}
 
-    const item = await itemsRepository.findOne(item_id);
+  public async execute(item_id: string): Promise<Item | undefined> {
+    const item = await this.itemsRepository.findItemById(item_id);
 
     return item;
   }

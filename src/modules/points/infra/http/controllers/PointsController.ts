@@ -1,9 +1,10 @@
-
 import { Request, Response } from 'express';
+
+import { container } from 'tsyringe';
 
 import CreatePointService from '@modules/points/services/CreatePointService';
 import ShowPointService from '@modules/points/services/ShowPointService';
-import ListItemsByPointService from '@modules/point_items/services/ListItemsByPointService';
+import ListItemsByPointService from '@modules/items/services/ListItemsByPointService';
 import ListPointsByItemService from '@modules/point_items/services/ListPointsByItemService';
 
 class PointsController {
@@ -42,7 +43,7 @@ class PointsController {
       .split(',')
       .map(item => item.trim());
 
-      const listPoints = new ListPointsByItemService();
+    const listPoints = container.resolve(ListPointsByItemService);
 
     const points = await listPoints.execute({
       items: parsedItems,
@@ -50,21 +51,14 @@ class PointsController {
       uf: String(uf),
     });
 
-    // const serializedPoints = points
-    //   ? points.map(point => ({
-    //       ...point,
-    //       image_url: `http://192.168.0.185:3333/uploads/photos/${point.image}`,
-    //     }))
-    //   : points;
-
     return response.json(points);
   }
 
   public async show(request: Request, response: Response) {
     const { id } = request.params;
 
-    const showPoint = new ShowPointService();
-    const listItems = new ListItemsByPointService();
+    const showPoint = container.resolve(ShowPointService);
+    const listItems = container.resolve(ListItemsByPointService);
 
     const point = await showPoint.execute(id);
     const items = await listItems.execute(id);
