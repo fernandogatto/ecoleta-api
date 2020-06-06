@@ -13,19 +13,13 @@
 Ecoleta is a Web and Mobile application to help people find collection points for recycling. Build on **Next Week Level**, organized by [Rocketseat](https://rocketseat.com.br/).
 
 ## 🔗 Table of contents
-- [Technologies](#technologies)
 - [Features](#features)
+- [Technologies](#technologies)
 - [Installation](#installation)
 - [Starting](#starting)
 - [Status codes](#status)
+- [Contribute](#contribute)
 - [License](#license)
-
-## 📌 Technologies <a name="technologies"/>
-
-- [Node.js](https://nodejs.org/en/)
-- [Express](https://expressjs.com/pt-br/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [TypeORM](https://typeorm.io/#/).
 
 ## 📚 Features <a name="features"/>
 
@@ -33,6 +27,13 @@ Ecoleta is a Web and Mobile application to help people find collection points fo
 - Items CRUD
 - DDD and architeture SOLID
 - TDD (comming soon)
+
+## 📌 Technologies <a name="technologies"/>
+
+- [Node.js](https://nodejs.org/en/)
+- [Express](https://expressjs.com/pt-br/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TypeORM](https://typeorm.io/#/)
 
 ## 📂 Installation <a name="installation"/>
 
@@ -76,6 +77,13 @@ yarn dev:server
 | 401      | UNAUTHORIZED          |
 | 404      | NOT FOUND             |
 | 500      | INTERNAL SERVER ERROR |
+
+## 👍 Contribute <a name="contribute"/>
+
+- Fork this repository.
+- Create a branch with your resource: ```git checkout -b my-feature```
+- Submit changes: ```git commit -m "feat: My new feature"```
+- Push your branch: ```git push origin my-feature```
 
 ## 📕 License <a name="license"/>
 
