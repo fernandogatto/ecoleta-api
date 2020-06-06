@@ -1,7 +1,7 @@
 import { container } from 'tsyringe';
 
 import IItemsRepository from '@modules/items/interfaces/repositories/IItemsRepository';
-import ItemsRepository from '@modules/items/repositories/ItemsRepository';
+import ItemsRepository from '@modules/items/infra/typeorm/repositories/ItemsRepository';
 
 container.registerSingleton<IItemsRepository>(
   'ItemsRepository',

@@ -1,9 +1,9 @@
 import { Repository, getRepository, In } from 'typeorm';
 
-import IItemsRepository from '../interfaces/repositories/IItemsRepository';
-import ICreateItemDTO from '../interfaces/dtos/ICreateItemDTO';
+import IItemsRepository from '../../../interfaces/repositories/IItemsRepository';
+import ICreateItemDTO from '../../../interfaces/dtos/ICreateItemDTO';
 
-import Item from '../infra/typeorm/entities/Item';
+import Item from '../entities/Item';
 import PointItems from '@modules/point_items/infra/typeorm/entities/PointItems';
 
 class ItemsRepository implements IItemsRepository {

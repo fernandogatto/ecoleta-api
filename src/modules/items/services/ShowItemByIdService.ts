@@ -1,6 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 
-import ItemsRepository from '../repositories/ItemsRepository';
+import ItemsRepository from '../infra/typeorm/repositories/ItemsRepository';
 
 import Item from '../infra/typeorm/entities/Item';
 
