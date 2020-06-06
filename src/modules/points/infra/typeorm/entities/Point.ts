@@ -38,7 +38,10 @@ class Point {
   @Column({ length: 2 })
   uf: string;
 
-  @OneToMany(() => PointItems, point_items => point_items.point)
+  @OneToMany(() => PointItems, pointItems => pointItems.point, {
+    cascade: ['insert', 'remove', 'update'],
+    eager: true,
+  })
   point_items: PointItems[];
 
   @CreateDateColumn()

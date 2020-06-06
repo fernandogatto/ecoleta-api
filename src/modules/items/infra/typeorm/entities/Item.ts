@@ -21,7 +21,9 @@ class Item {
   @Column()
   title: string;
 
-  @OneToMany(() => PointItems, point_items => point_items.item)
+  @OneToMany(() => PointItems, pointItems => pointItems.item, {
+    cascade: ['insert'],
+  })
   point_items: PointItems[];
 
   @CreateDateColumn()

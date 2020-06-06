@@ -22,15 +22,11 @@ class PointItems {
   @Column()
   item_id: string;
 
-  @ManyToOne(() => Point, point => point.point_items, {
-    eager: false, onDelete: 'CASCADE'
-  })
+  @ManyToOne(() => Point, point => point.point_items)
   @JoinColumn({ name: 'point_id' })
   point: Point;
 
-  @ManyToOne(() => Item, item => item.point_items, {
-    eager: false, onDelete: 'CASCADE'
-  })
+  @ManyToOne(() => Item, item => item.point_items, { eager: true })
   @JoinColumn({ name: 'item_id' })
   item: Item;
 
