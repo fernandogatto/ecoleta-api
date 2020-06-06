@@ -8,7 +8,7 @@ import {
   BeforeInsert,
 } from 'typeorm';
 
-import PointItems from '@modules/point_items/infra/typeorm/entities/PointItems';
+import PointItems from '@modules/points/infra/typeorm/entities/PointItems';
 
 @Entity('items')
 class Item {

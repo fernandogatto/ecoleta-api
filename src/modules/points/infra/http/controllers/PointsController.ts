@@ -5,7 +5,7 @@ import { container } from 'tsyringe';
 import CreatePointService from '@modules/points/services/CreatePointService';
 import ShowPointService from '@modules/points/services/ShowPointService';
 import ListItemsByPointService from '@modules/items/services/ListItemsByPointService';
-import ListPointsByItemService from '@modules/point_items/services/ListPointsByItemService';
+import ListPointsByItemService from '@modules/points/services/ListPointsByItemService';
 
 class PointsController {
   public async create(request: Request, response: Response) {
