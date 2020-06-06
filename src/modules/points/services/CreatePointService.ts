@@ -4,7 +4,7 @@ import AppError from '@shared/errors/AppError';
 
 import Point from '../infra/typeorm/entities/Point';
 
-import CreatePointItemsService from '@modules/point_items/services/CreatePointItems';
+import CreatePointItemsService from '@modules/point_items/services/CreatePointItemsService';
 
 interface Request {
   name: string;

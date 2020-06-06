@@ -39,7 +39,7 @@ class Point {
   uf: string;
 
   @OneToMany(() => PointItems, point_items => point_items.point)
-  point_items: PointItems
+  point_items: PointItems[];
 
   @CreateDateColumn()
   created_at: Date;

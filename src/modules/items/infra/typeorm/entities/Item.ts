@@ -22,7 +22,7 @@ class Item {
   title: string;
 
   @OneToMany(() => PointItems, point_items => point_items.item)
-  point_items: PointItems
+  point_items: PointItems[];
 
   @CreateDateColumn()
   created_at: Date;

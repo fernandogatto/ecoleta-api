@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 
 import CreatePointService from '@modules/points/services/CreatePointService';
 import ShowPointService from '@modules/points/services/ShowPointService';
+import ListItemsByPointService from '@modules/point_items/services/ListItemsByPointService';
 
 class PointsController {
   public async create(request: Request, response: Response) {
@@ -37,10 +38,22 @@ class PointsController {
     const { id } = request.params;
 
     const showPoint = new ShowPointService();
+    const listItems = new ListItemsByPointService();
 
     const point = await showPoint.execute(id);
+    const items = await listItems.execute(id);
 
-    return response.json(point);
+    return response.json({point, items});
+  }
+
+  public async index(request: Request, response: Response) {
+    const { city, uf, items } = request.query;
+
+    // const parsedItems = String(items)
+    //   .split(',')
+    //   .map(item => item.trim());
+
+    return response.json({ok: true});
   }
 }
 

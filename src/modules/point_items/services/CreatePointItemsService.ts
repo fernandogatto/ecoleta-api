@@ -11,7 +11,7 @@ interface Request {
   item_id: string;
 }
 
-class CreatePointService {
+class CreatePointItemsService {
   public async execute({ point_id, item_id }: Request): Promise<PointItems> {
     const pointItemsRepository = getRepository(PointItems);
     const pointsRepository = getRepository(Point);
@@ -52,4 +52,4 @@ class CreatePointService {
   }
 }
 
-export default CreatePointService;
+export default CreatePointItemsService;
