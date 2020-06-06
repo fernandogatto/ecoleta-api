@@ -3,16 +3,26 @@ import { getRepository } from "typeorm";
 import PointItems from "../infra/typeorm/entities/PointItems";
 import Point from "@modules/points/infra/typeorm/entities/Point";
 
+interface Request {
+  items: string[];
+  city: string;
+  uf: string;
+}
+
 class ListPointsByItemService {
-  public async execute(item_id: string): Promise<Point[]> {
-    const pointItemsRepository = getRepository(PointItems);
+  public async execute({ items, city, uf }: Request): Promise<Point[]> {
+    const pointsRepository = getRepository(Point);
 
-    const pointItems = await pointItemsRepository.find({
-      relations: ['point'],
-      where: { item_id },
-    });
-
-    const points = pointItems.map(point_item => point_item.point);
+    const points = await pointsRepository.createQueryBuilder('points')
+    .innerJoin(
+      'points.point_items',
+      'point_items',
+      'point_items.item_id IN (:...items)',
+      { items },
+    )
+    .where('points.uf = :uf', { uf })
+    .where('points.city = :city', { city })
+    .getMany();
 
     return points;
   }
