@@ -6,6 +6,7 @@ import ICreatePointsDTO from "@modules/points/interfaces/dtos/ICreatePointsDTO";
 
 import Point from "../entities/Point";
 import IFindPointByLatLonDTO from "@modules/points/interfaces/dtos/IFindPointByLatLonDTO";
+import IFindAllFilteredPointsDTO from "@modules/points/interfaces/dtos/IFindAllFilteredPointsDTO";
 
 class PointsRepository implements IPointsRepository {
   private pointsRepository: Repository<Point>;
@@ -36,6 +37,14 @@ class PointsRepository implements IPointsRepository {
     return point;
   }
 
+  public async findPointById(id: string): Promise<Point | undefined> {
+    const point = await this.pointsRepository.findOne(id);
+
+    delete point?.point_items;
+
+    return point;
+  }
+
   public async findPointByLatLon(
     { latitude, longitude }: IFindPointByLatLonDTO
   ): Promise<Point | undefined> {
@@ -44,6 +53,23 @@ class PointsRepository implements IPointsRepository {
     });
 
     return point;
+  }
+
+  public async findAllFilteredPoints({
+    city, uf, items
+  }: IFindAllFilteredPointsDTO): Promise<Point[]> {
+    const points = await this.pointsRepository.createQueryBuilder('points')
+      .innerJoin(
+        'points.point_items',
+        'point_items',
+        'point_items.item_id IN (:...items)',
+        { items },
+      )
+      .where('points.uf = :uf', { uf })
+      .where('points.city = :city', { city })
+      .getMany();
+
+    return points;
   }
 }
 

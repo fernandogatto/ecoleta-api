@@ -1,28 +1,25 @@
-import { getRepository } from "typeorm";
+import { injectable, inject } from 'tsyringe';
 
-import PointItems from "../infra/typeorm/entities/PointItems";
-import Point from "@modules/points/infra/typeorm/entities/Point";
+import Point from '../infra/typeorm/entities/Point';
 
-interface Request {
-  items: string[];
+import IPointsRepository from '../interfaces/repositories/IPointsRepository';
+
+interface IRequest {
   city: string;
   uf: string;
+  items: string[];
 }
 
+@injectable()
 class ListPointsByItemService {
-  public async execute({ items, city, uf }: Request): Promise<Point[]> {
-    const pointsRepository = getRepository(Point);
+  constructor(
+    @inject('PointsRepository')
+    private pointsRepository: IPointsRepository,
+  ) {}
 
-    const points = await pointsRepository.createQueryBuilder('points')
-    .innerJoin(
-      'points.point_items',
-      'point_items',
-      'point_items.item_id IN (:...items)',
-      { items },
-    )
-    .where('points.uf = :uf', { uf })
-    .where('points.city = :city', { city })
-    .getMany();
+  public async execute({ city, uf, items }: IRequest): Promise<Point[]> {
+    const points = await this.pointsRepository
+      .findAllFilteredPoints({ city, uf, items });
 
     return points;
   }

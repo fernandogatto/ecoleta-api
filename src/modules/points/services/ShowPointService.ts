@@ -1,14 +1,20 @@
-import { getRepository } from 'typeorm';
-
-import Point from '../infra/typeorm/entities/Point';
+import { injectable, inject } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
 
-class ShowPointService {
-  public async execute(id: string): Promise<Point> {
-    const pointsRepository = getRepository(Point);
+import Point from '../infra/typeorm/entities/Point';
 
-    const point = await pointsRepository.findOne(id);
+import IPointsRepository from '../interfaces/repositories/IPointsRepository';
+
+@injectable()
+class ShowPointService {
+  constructor(
+    @inject('PointsRepository')
+    private pointsRepository: IPointsRepository,
+  ) {}
+
+  public async execute(id: string): Promise<Point> {
+    const point = await this.pointsRepository.findPointById(id);
 
     if(!point) {
       throw new AppError('Point not found');

@@ -1,5 +1,4 @@
 import { injectable, inject } from 'tsyringe';
-import { getRepository } from 'typeorm';
 
 import AppError from '@shared/errors/AppError';
 
@@ -7,7 +6,6 @@ import Point from '../infra/typeorm/entities/Point';
 
 import IPointsRepository from '../interfaces/repositories/IPointsRepository'
 import IItemsRepository from '@modules/items/interfaces/repositories/IItemsRepository';
-import ICreatePointsDTO from '../interfaces/dtos/ICreatePointsDTO';
 
 interface IRequest {
   name: string;
@@ -39,7 +37,7 @@ class CreatePointService {
       throw new AppError('Item not found');
     }
 
-    const pointExists = this.pointsRepository.findPointByLatLon({
+    const pointExists = await this.pointsRepository.findPointByLatLon({
       latitude,
       longitude,
     });

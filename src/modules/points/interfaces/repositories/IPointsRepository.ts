@@ -9,8 +9,8 @@ export default interface IPointsInterface {
   create(data: ICreatePointsDTO): Promise<Point>;
   // update(data: IUpdatePointDTO): Promise<Point>;
   // delete(point: Point): Promise<void>;
-  // findAllFilteredPoints(data: IFindAllFilteredPointsDTO): Promise<Point[]>;
-  // findPointById(id: string): Promise<Point | undefined>;
+  findPointById(id: string): Promise<Point | undefined>;
   findPointByLatLon(data: IFindPointByLatLonDTO): Promise<Point | undefined>;
+  findAllFilteredPoints(data: IFindAllFilteredPointsDTO): Promise<Point[]>;
   // findAllPoints(): Promise<Point[] | undefined>;
 }

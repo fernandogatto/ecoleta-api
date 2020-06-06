@@ -58,7 +58,7 @@ class ItemsRepository implements IItemsRepository {
       .createQueryBuilder('items')
       .select('items.title')
       .innerJoin('items.point_items', 'point_items')
-      .where('point_items.point_id = :id', { point_id })
+      .where('point_items.point_id = :point_id', { point_id })
       .getMany();
 
     return items;
@@ -68,8 +68,6 @@ class ItemsRepository implements IItemsRepository {
     const findAllItems = await this.itemsRepository.find({
       where: { id: In(items) },
     });
-
-    console.log(findAllItems);
 
     return findAllItems;
   }
