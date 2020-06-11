@@ -17,12 +17,15 @@ class PointsController {
       longitude,
       city,
       uf,
-      items,
+      items: stringItems,
     } = request.body;
 
     const createPoint = container.resolve(CreatePointService);
 
+    const items = stringItems.split(',').map((item: string) => item.trim());
+
     const point = await createPoint.execute({
+      image: request.file.filename,
       name,
       email,
       whatsapp,
@@ -51,7 +54,14 @@ class PointsController {
       uf: String(uf),
     });
 
-    return response.json(points);
+    const serialedPoints = points?.map(point => {
+      return {
+        ...point,
+        image_url: `http://localhost:3333/tmp/uploads/${point.image}`,
+      };
+    });
+
+    return response.json(serialedPoints);
   }
 
   public async show(request: Request, response: Response) {
@@ -63,7 +73,12 @@ class PointsController {
     const point = await showPoint.execute(id);
     const items = await listItems.execute(id);
 
-    return response.json({point, items});
+    const serialedPoint = {
+      ...point,
+      image_url: `http://localhost:3333/tmp/uploads/${point.image}`,
+    };
+
+    return response.json({point: serialedPoint, items});
   }
 }
 

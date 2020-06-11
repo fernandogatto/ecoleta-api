@@ -16,10 +16,10 @@ class PointsRepository implements IPointsRepository {
   }
 
   public async create({
-    name, email, whatsapp, latitude, longitude, city, uf, items_id
+    image, name, email, whatsapp, latitude, longitude, city, uf, items_id
   }: ICreatePointsDTO): Promise<Point> {
     const point = this.pointsRepository.create({
-      image: 'fake',
+      image,
       name,
       email,
       whatsapp,

@@ -1,6 +1,9 @@
 import { injectable, inject } from 'tsyringe';
+import fs from 'fs';
+import path from 'path';
 
 import AppError from '@shared/errors/AppError';
+import uploadConfig from '@config/upload';
 
 import Point from '../infra/typeorm/entities/Point';
 
@@ -8,6 +11,7 @@ import IPointsRepository from '../interfaces/repositories/IPointsRepository'
 import IItemsRepository from '@modules/items/interfaces/repositories/IItemsRepository';
 
 interface IRequest {
+  image: string;
   name: string;
   email: string;
   whatsapp: string;
@@ -29,7 +33,7 @@ class CreatePointService {
   ) {}
 
   public async execute({
-    name, email, whatsapp, latitude, longitude, city, uf, items
+    image, name, email, whatsapp, latitude, longitude, city, uf, items
   }: IRequest): Promise<Point> {
     const itemsExists = await this.itemsRepository.findAllItemsById(items);
 
@@ -47,6 +51,7 @@ class CreatePointService {
     }
 
     const point = this.pointsRepository.create({
+      image,
       name,
       email,
       whatsapp,
@@ -56,6 +61,11 @@ class CreatePointService {
       uf,
       items_id: items,
     });
+
+    await fs.promises.rename(
+      path.resolve(uploadConfig.tmpFolder, image),
+      path.resolve(uploadConfig.uploadsFolder, image),
+    );
 
     return point;
   }

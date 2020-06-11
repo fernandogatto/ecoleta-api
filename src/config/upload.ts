@@ -1,6 +1,7 @@
 import path from 'path';
 import crypto from 'crypto';
 import multer from 'multer';
+import AppError from '@shared/errors/AppError';
 
 const tmpFolder = path.resolve(__dirname, '..', '..', 'tmp');
 
@@ -17,4 +18,22 @@ export default {
       return callback(null, fileName);
     }
   }),
+  limits: {
+    fileSize: 8 * 2048 * 2048,
+  },
+  fileFilter: (request, file, callback) => {
+    const allowedMimes = [
+      'image/jpeg',
+      'image/jpg',
+      'image/pjpeg',
+      'image/png',
+      'image/gif',
+    ];
+
+    if (allowedMimes.includes(file.mimetype)) {
+      callback(null, true);
+    } else {
+      callback(new AppError('Invalid file type.'));
+    }
+  },
 }

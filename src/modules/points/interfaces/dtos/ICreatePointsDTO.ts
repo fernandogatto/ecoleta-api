@@ -1,4 +1,5 @@
 export default interface ICreatePointsDTO {
+  image: string;
   name: string;
   email: string;
   whatsapp: string;

@@ -5,6 +5,7 @@ import path from 'path';
 import cors from 'cors';
 import 'express-async-errors';
 
+import uploadConfig from '@config/upload';
 import AppError from '@shared/errors/AppError';
 
 import routes from './routes';
@@ -18,7 +19,12 @@ app.use(cors());
 app.use(express.json());
 app.use(routes);
 
-app.use('/uploads', express.static(path.resolve(__dirname, '..', '..', '..', 'uploads')));
+app.use('/tmp/uploads', express.static(path.resolve(__dirname, '..', '..', '..', 'uploads')));
+app.use('/tmp', express.static(path.resolve(uploadConfig.tmpFolder)));
+app.use(
+  '/tmp/uploads',
+  express.static(path.resolve(uploadConfig.uploadsFolder)),
+);
 
 app.use(
   (err: Error, request: Request, response: Response, _: NextFunction) => {
