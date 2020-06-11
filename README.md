@@ -29,6 +29,8 @@
 - DDD and architeture SOLID
 - TDD (comming soon)
 
+To view the Web project, follow this [Ecoleta Web](https://github.com/fernandogatto/ecoleta-web).
+
 ## 📌 Technologies <a name="technologies"/>
 
 - [Node.js](https://nodejs.org/en/)
