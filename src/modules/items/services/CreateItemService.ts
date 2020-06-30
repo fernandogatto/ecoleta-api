@@ -20,14 +20,14 @@ class CreateItemService {
   public async execute({ title, image }: IRequest): Promise<Item> {
     const checkItemExists = await this.itemsRepository.findItemByTitle(title);
 
-    if (checkItemExists) throw new AppError('Product already exists');
+    if (checkItemExists) throw new AppError('Item already exists');
 
-    const product = await this.itemsRepository.create({
+    const item = await this.itemsRepository.create({
       title,
       image,
     });
 
-    return product;
+    return item;
   }
 }
 

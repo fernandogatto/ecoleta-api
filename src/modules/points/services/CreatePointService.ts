@@ -33,7 +33,15 @@ class CreatePointService {
   ) {}
 
   public async execute({
-    image, name, email, whatsapp, latitude, longitude, city, uf, items
+    image,
+    name,
+    email,
+    whatsapp,
+    latitude,
+    longitude,
+    city,
+    uf,
+    items
   }: IRequest): Promise<Point> {
     const itemsExists = await this.itemsRepository.findAllItemsById(items);
 
