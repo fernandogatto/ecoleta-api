@@ -15,7 +15,7 @@
   </a>
   
   <a href="https://github.com/fernandogatto/ecoleta-api/stargazers">
-    <img src=https://img.shields.io/badge/author-fernandogatto-%2334CB79 alt="Stars" />
+    <img src=https://img.shields.io/github/stars/fernandogatto/ecoleta-api?color=%2334CB79 alt="Stars" />
   </a>
   <a href="https://github.com/fernandogatto/ecoleta-api/network/members">
     <img src=https://img.shields.io/github/forks/fernandogatto/ecoleta-api?color=%2334CB79 alt="Forks" />
