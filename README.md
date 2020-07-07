@@ -4,12 +4,23 @@
 </p>
 
 <br />
+
  <p align="center">
-  <img src=https://img.shields.io/badge/author-fernandogatto-%2334CB79 alt="Auhtor" />
-  <img src=https://img.shields.io/github/languages/count/fernandogatto/ecoleta-api?color=%2334CB79 alt="Languages" />
-  <img src=https://img.shields.io/github/stars/fernandogatto/ecoleta-api?color=%2334CB79 alt="Stars" />
-  <img src=https://img.shields.io/github/forks/fernandogatto/ecoleta-api?color=%2334CB79 alt="Forks" />
-  <img src=https://img.shields.io/github/contributors/fernandogatto/ecoleta-api?color=%2334CB79 alt="Contributors" />
+  <a href="https://github.com/fernandogatto/"> 
+    <img src=https://img.shields.io/badge/author-fernandogatto-%2334CB79 alt="Auhtor" />
+  </a>
+  <a href="#">
+    <img src=https://img.shields.io/badge/author-fernandogatto-%2334CB79 alt="Languages" />
+  </a>
+  <a href="https://github.com/fernandogatto/ecoleta-api/stargazers">
+    <img src=https://img.shields.io/github/stars/fernandogatto/ecoleta-api?color=%2334CB79 alt="Stars" />
+  </a>
+  <a href="https://github.com/fernandogatto/ecoleta-api/network/members">
+    <img src=https://img.shields.io/github/forks/fernandogatto/ecoleta-api?color=%2334CB79 alt="Forks" />
+  </a>
+  <a href="https://github.com/fernandogatto/ecoleta-api/graphs/contributors">
+    <img src=https://img.shields.io/github/contributors/fernandogatto/ecoleta-api?color=%2334CB79 alt="Contributors" />
+  </a>
   <a href=https://choosealicense.com/licenses/mit/>
      <img src=https://img.shields.io/badge/license-MIT-%2334CB79 alt="License" />
   </a>
