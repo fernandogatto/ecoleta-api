@@ -10,7 +10,10 @@
   <img src=https://img.shields.io/github/stars/fernandogatto/ecoleta-api?color=%2334CB79 alt="Stars" />
   <img src=https://img.shields.io/github/forks/fernandogatto/ecoleta-api?color=%2334CB79 alt="Forks" />
   <img src=https://img.shields.io/github/contributors/fernandogatto/ecoleta-api?color=%2334CB79 alt="Contributors" />
-  <img src=https://img.shields.io/badge/license-MIT-%2334CB79 alt="License" />
+  <a href=https://choosealicense.com/licenses/mit/>
+     <img src=https://img.shields.io/badge/license-MIT-%2334CB79 alt="License" />
+  </a>
+  
 </p>
 
 <p align="center">
