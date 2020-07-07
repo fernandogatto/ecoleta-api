@@ -1,7 +1,6 @@
 <p align="center">
    <img src="./github/logo.png" width="300"/>
    <br />
-   ♻ Ecoleta API
 </p>
 
 <br />
@@ -22,8 +21,10 @@
   <a href="#-starting">Starting</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-status-codes">Status codes</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-contribute">Contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-license">License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-license">License</a>
 </p>
+
+<br />
 
 ## 💻 Project
 Ecoleta is a Web and Mobile application to help people find collection points for recycling. Build on **Next Week Level**, organized by [Rocketseat](https://rocketseat.com.br/).
