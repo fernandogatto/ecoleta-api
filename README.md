@@ -9,11 +9,13 @@
   <a href="https://github.com/fernandogatto/"> 
     <img src=https://img.shields.io/badge/author-fernandogatto-%2334CB79 alt="Auhtor" />
   </a>
+  
   <a href="#">
-    <img src=https://img.shields.io/badge/author-fernandogatto-%2334CB79 alt="Languages" />
+    <img src=https://img.shields.io/github/languages/count/fernandogatto/ecoleta-api?color=%2334CB79 alt="Languages" />
   </a>
+  
   <a href="https://github.com/fernandogatto/ecoleta-api/stargazers">
-    <img src=https://img.shields.io/github/stars/fernandogatto/ecoleta-api?color=%2334CB79 alt="Stars" />
+    <img src=https://img.shields.io/badge/author-fernandogatto-%2334CB79 alt="Stars" />
   </a>
   <a href="https://github.com/fernandogatto/ecoleta-api/network/members">
     <img src=https://img.shields.io/github/forks/fernandogatto/ecoleta-api?color=%2334CB79 alt="Forks" />
@@ -33,8 +35,8 @@
   <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-installation">Installation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-starting">Starting</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <br />
   <a href="#-status-codes">Status codes</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <br />
   <a href="#-contribute">Contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-license">License</a>
 </p>
