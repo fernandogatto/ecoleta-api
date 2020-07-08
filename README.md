@@ -1,28 +1,52 @@
 <p align="center">
    <img src="./github/logo.png" width="300"/>
+   <br />
 </p>
 
-# ♻ Ecoleta API
+<br />
 
-[![Author](https://img.shields.io/badge/author-fernandogatto-%2334CB79)](https://github.com/fernandogatto/)
-[![Languages](https://img.shields.io/github/languages/count/fernandogatto/ecoleta-api?color=%2334CB79)](#)
-[![Stars](https://img.shields.io/github/stars/fernandogatto/ecoleta-api?color=%2334CB79)](https://github.com/fernandogatto/ecoleta-api/stargazers)
-[![Forks](https://img.shields.io/github/forks/fernandogatto/ecoleta-api?color=%2334CB79)](https://github.com/fernandogatto/ecoleta-api/network/members)
-[![Contributors](https://img.shields.io/github/contributors/fernandogatto/ecoleta-api?color=%2334CB79)](https://github.com/fernandogatto/ecoleta-api/graphs/contributors)
-[![License](https://img.shields.io/badge/license-MIT-%2334CB79)](https://choosealicense.com/licenses/mit/)
+ <p align="center">
+  <a href="https://github.com/fernandogatto/"> 
+    <img src=https://img.shields.io/badge/author-fernandogatto-%2334CB79 alt="Auhtor" />
+  </a>
+  
+  <a href="#">
+    <img src=https://img.shields.io/github/languages/count/fernandogatto/ecoleta-api?color=%2334CB79 alt="Languages" />
+  </a>
+  
+  <a href="https://github.com/fernandogatto/ecoleta-api/stargazers">
+    <img src=https://img.shields.io/github/stars/fernandogatto/ecoleta-api?color=%2334CB79 alt="Stars" />
+  </a>
+  <a href="https://github.com/fernandogatto/ecoleta-api/network/members">
+    <img src=https://img.shields.io/github/forks/fernandogatto/ecoleta-api?color=%2334CB79 alt="Forks" />
+  </a>
+  <a href="https://github.com/fernandogatto/ecoleta-api/graphs/contributors">
+    <img src=https://img.shields.io/github/contributors/fernandogatto/ecoleta-api?color=%2334CB79 alt="Contributors" />
+  </a>
+  <a href=https://choosealicense.com/licenses/mit/>
+     <img src=https://img.shields.io/badge/license-MIT-%2334CB79 alt="License" />
+  </a>
+  
+</p>
 
-> Ecoleta is a Web and Mobile application to help people find collection points for recycling. Build on **Next Week Level**, organized by [Rocketseat](https://rocketseat.com.br/).
+<p align="center">
+  <a href="#-project">Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-installation">Installation</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-starting">Starting</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-status-codes">Status codes</a>
+  <br />
+  <a href="#-contribute">Contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-license">License</a>
+</p>
 
-## 🔗 Table of contents
-- [Features](#features)
-- [Technologies](#technologies)
-- [Installation](#installation)
-- [Starting](#starting)
-- [Status codes](#status)
-- [Contribute](#contribute)
-- [License](#license)
+<br />
 
-## 📚 Features <a name="features"/>
+## 💻 Project
+Ecoleta is a Web and Mobile application to help people find collection points for recycling. Build on **Next Week Level**, organized by [Rocketseat](https://rocketseat.com.br/).
+
+## 📚 Features 
 
 - Points CRUD
 - Items CRUD
@@ -31,14 +55,14 @@
 
 To view the Web project, follow this [Ecoleta Web](https://github.com/fernandogatto/ecoleta-web).
 
-## 📌 Technologies <a name="technologies"/>
+## 📌 Technologies
 
 - [Node.js](https://nodejs.org/en/)
 - [Express](https://expressjs.com/pt-br/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [TypeORM](https://typeorm.io/#/)
 
-## 📂 Installation <a name="installation"/>
+## 📂 Installation
 
 First of all, it is important that you have installed [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/).
 
@@ -54,7 +78,7 @@ SSH URLs provide access to a Git repository via SSH, a secure protocol. If you h
 git@github.com:fernandogatto/ecoleta-api.git
 ```
 
-## 🚀 Starting <a name="starting"/>
+## 🚀 Starting
 
 ORM configuration is on ```ormconfig.json```. There you can configure your database settings.
 
@@ -62,16 +86,16 @@ Run the following command in order in terminal:
 
 ```bash
 # Configure the database schema
-yarn schema:sync
+$ yarn schema:sync
 
 # Run previous seed
-yarn seed:run
+$ yarn seed:run
 
 # Start the server
-yarn dev:server
+$ yarn dev:server
 ```
 
-## ⚙ Status codes <a name="status"/>
+## ⚙ Status codes
 
 | Status   | Description           |
 | ---      | ---                   |
@@ -81,15 +105,16 @@ yarn dev:server
 | 404      | NOT FOUND             |
 | 500      | INTERNAL SERVER ERROR |
 
-## 👍 Contribute <a name="contribute"/>
+## 👍 Contribute
 
 - Fork this repository.
 - Create a branch with your resource: ```git checkout -b my-feature```
 - Submit changes: ```git commit -m "feat: My new feature"```
 - Push your branch: ```git push origin my-feature```
 
-## 📕 License <a name="license"/>
+## 📕 License
 
 Released in 2020. This project is under the [MIT License](https://choosealicense.com/licenses/mit/).
 
+---
 Build with 💜 by [Fernando Gatto](https://github.com/fernandogatto/).
