@@ -27,7 +27,6 @@
 - Points CRUD
 - Items CRUD
 - DDD and architeture SOLID
-- TDD (comming soon)
 
 To view the Web project, follow this [Ecoleta Web](https://github.com/fernandogatto/ecoleta-web).
 
